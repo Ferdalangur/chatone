@@ -1,0 +1,32 @@
+import random
+
+def greeting():
+    responses = ["Привет!", "Здравствуйте!", "Приветствую вас!", "Привет-привет!"]
+    return random.choice(responses)
+
+def suggestion():
+    return "Почему бы просто ни о чем не думать и расслабиться?"
+
+def farewell(user_input):
+    farewells = ["пока", "всего доброго", "ясно", "до свидания", "бай", "гудбай", "бб"]
+    if user_input.lower() in farewells:
+        return "Пока! Хорошего дня!"
+    else:
+        return None
+
+def chat():
+    print("Привет! Чем я могу помочь?")
+    while True:
+        user_input = input("Вы: ")
+        if "привет" in user_input.lower():
+            print(greeting())
+        elif "ничего не делать" in user_input.lower():
+            print(suggestion())
+        elif farewell(user_input):
+            print(farewell(user_input))
+            break
+        else:
+            print("Извините, я не понимаю. Можете повторить?")
+
+if __name__ == "__main__":
+    chat()
